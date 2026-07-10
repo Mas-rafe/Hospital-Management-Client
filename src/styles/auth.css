@@ -1,0 +1,101 @@
+.auth-page {
+  width: min(460px, 92%);
+  margin: 60px auto;
+}
+
+.auth-card {
+  background: white;
+  padding: 34px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+}
+
+.auth-card h1 {
+  font-size: 32px;
+  margin-bottom: 8px;
+  color: #0f766e;
+}
+
+.auth-card p {
+  color: #64748b;
+  margin-bottom: 24px;
+}
+
+.auth-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.auth-card label {
+  font-weight: 700;
+  color: #334155;
+}
+
+.auth-card input,
+.auth-card select {
+  padding: 13px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  outline: none;
+  font-size: 15px;
+}
+
+.auth-card input:focus,
+.auth-card select:focus {
+  border-color: #0f766e;
+}
+
+.auth-switch {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.auth-switch a {
+  color: #0f766e;
+  font-weight: 700;
+}
+
+.divider {
+  display: flex;
+  align-items: center;
+  margin: 22px 0;
+  color: #94a3b8;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #e2e8f0;
+}
+
+.divider span {
+  padding: 0 12px;
+  font-weight: 700;
+}
+
+.google-box {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+}
+
+.google-role-text {
+  text-align: center;
+  color: #64748b;
+  margin-bottom: 14px;
+  font-size: 14px;
+}
+
+.google-role-text strong {
+  color: #0f766e;
+}
+
+@media (max-width: 900px) {
+  .auth-card {
+    padding: 24px 18px;
+  }
+}

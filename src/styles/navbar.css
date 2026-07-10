@@ -1,0 +1,160 @@
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e2e8f0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  width: min(1180px, 92%);
+  margin: auto;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f766e;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-weight: 600;
+}
+
+.nav-links a {
+  color: #334155;
+}
+
+.nav-links a.active {
+  color: #0f766e;
+}
+
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.user-mini {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.user-mini img,
+.user-mini span {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+
+.user-mini img {
+  object-fit: cover;
+}
+
+.user-mini span {
+  background: #0f766e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+.user-mini p {
+  font-size: 13px;
+  font-weight: 800;
+  color: #0f172a;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.user-mini small {
+  font-size: 11px;
+  color: #64748b;
+  text-transform: capitalize;
+}
+
+.mobile-menu-btn {
+  display: none;
+  background: transparent;
+  border: none;
+  font-size: 30px;
+  color: #0f766e;
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .desktop-menu,
+  .desktop-actions {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-container {
+    height: 70px;
+    flex-direction: row;
+  }
+
+  .mobile-menu {
+    display: block;
+    background: white;
+    padding: 18px 4%;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  .mobile-menu nav a {
+    color: #334155;
+  }
+
+  .mobile-menu nav a.active {
+    color: #0f766e;
+  }
+
+  .mobile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .mobile-user-mini {
+    border-radius: 14px;
+    justify-content: flex-start;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    font-size: 20px;
+  }
+}

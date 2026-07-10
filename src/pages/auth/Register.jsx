@@ -3,15 +3,12 @@ import axios from "axios";
 import Swal from "sweetalert2";
 import { Link, useNavigate } from "react-router-dom";
 import { GoogleLogin } from "@react-oauth/google";
+import useAuth from "../../hooks/useAuth";
 
 const Register = () => {
   const navigate = useNavigate();
+  const { saveAuthData } = useAuth();
   const [selectedRole, setSelectedRole] = useState("patient");
-
-  const saveLoginData = (data) => {
-    localStorage.setItem("hospital-token", data.token);
-    localStorage.setItem("hospital-user", JSON.stringify(data.user));
-  };
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -31,7 +28,7 @@ const Register = () => {
 
       if (res.data.success) {
         if (res.data.token && res.data.user) {
-          saveLoginData(res.data);
+          saveAuthData(res.data);
         }
 
         Swal.fire({
@@ -66,7 +63,7 @@ const Register = () => {
       });
 
       if (res.data.success) {
-        saveLoginData(res.data);
+        saveAuthData(res.data);
 
         Swal.fire({
           icon: "success",
