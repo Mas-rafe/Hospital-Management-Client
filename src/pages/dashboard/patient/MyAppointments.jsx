@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 import {
   FaCalendarCheck,
   FaClock,
+  FaFilePrescription,
   FaMoneyBillWave,
   FaStethoscope,
   FaUserMd,
@@ -96,11 +98,11 @@ const MyAppointments = () => {
 
         <p className="mt-3 max-w-2xl text-sm leading-6 text-emerald-50 sm:text-base">
           Track your appointment requests, confirmation status, doctor details,
-          and payment status.
+          payment status, and prescriptions after completed consultation.
         </p>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-3">
+      <div className="grid gap-5 md:grid-cols-4">
         <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
           <h3 className="text-sm font-bold text-slate-500">
             Total Appointments
@@ -125,6 +127,13 @@ const MyAppointments = () => {
           </h3>
           <p className="mt-3 text-4xl font-black text-green-700">
             {appointments.filter((item) => item.status === "confirmed").length}
+          </p>
+        </div>
+
+        <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+          <h3 className="text-sm font-bold text-slate-500">Completed</h3>
+          <p className="mt-3 text-4xl font-black text-blue-700">
+            {appointments.filter((item) => item.status === "completed").length}
           </p>
         </div>
       </div>
@@ -256,6 +265,39 @@ const MyAppointments = () => {
                 <div className="mt-5 rounded-2xl bg-green-50 p-4">
                   <p className="text-sm font-bold text-green-700">
                     Your appointment is confirmed/booked. Please visit on time.
+                  </p>
+                </div>
+              )}
+
+              {appointment.status === "completed" && (
+                <div className="mt-5 rounded-2xl bg-blue-50 p-4">
+                  <p className="text-sm font-bold text-blue-700">
+                    Consultation completed. Your prescription is available now.
+                  </p>
+
+                  <Link
+                    to={`/dashboard/patient/my-prescriptions?appointmentId=${appointment._id}`}
+                    className="mt-4 inline-flex items-center justify-center gap-2 rounded-2xl bg-blue-700 px-5 py-3 text-sm font-black text-white transition hover:bg-blue-800"
+                  >
+                    <FaFilePrescription />
+                    View Prescription
+                  </Link>
+                </div>
+              )}
+
+              {appointment.status === "rejected" && (
+                <div className="mt-5 rounded-2xl bg-red-50 p-4">
+                  <p className="text-sm font-bold text-red-700">
+                    This appointment request was rejected. Please book another
+                    appointment if needed.
+                  </p>
+                </div>
+              )}
+
+              {appointment.status === "cancelled" && (
+                <div className="mt-5 rounded-2xl bg-red-50 p-4">
+                  <p className="text-sm font-bold text-red-700">
+                    This appointment was cancelled.
                   </p>
                 </div>
               )}
