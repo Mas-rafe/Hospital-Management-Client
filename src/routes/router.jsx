@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout";
 import DashboardLayout from "../layouts/DashboardLayout";
 import PrivateRoute from "./PrivateRoute";
+import RoleRoute from "./RoleRoute";
 
 import Home from "../pages/public/Home";
 import About from "../pages/public/About";
@@ -85,84 +86,172 @@ const router = createBrowserRouter([
         element: <DashboardHome />,
       },
 
+      // =========================
+      // Admin Routes
+      // =========================
       {
         path: "admin",
-        element: <AdminHome />,
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <AdminHome />
+          </RoleRoute>
+        ),
       },
       {
         path: "admin/manage-users",
-        element: <ManageUsers />,
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManageUsers />
+          </RoleRoute>
+        ),
       },
       {
         path: "admin/manage-doctors",
-        element: <ManageDoctors />,
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManageDoctors />
+          </RoleRoute>
+        ),
       },
       {
         path: "admin/manage-departments",
-        element: <ManageDepartments />,
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManageDepartments />
+          </RoleRoute>
+        ),
       },
       {
         path: "admin/manage-appointments",
-        element: <ManageAppointments />,
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManageAppointments />
+          </RoleRoute>
+        ),
       },
       {
         path: "admin/manage-payments",
-        element: <ManagePayments />,
+        element: (
+          <RoleRoute allowedRoles={["admin"]}>
+            <ManagePayments />
+          </RoleRoute>
+        ),
       },
 
+      // =========================
+      // Doctor Routes
+      // =========================
       {
         path: "doctor",
-        element: <DoctorHome />,
+        element: (
+          <RoleRoute allowedRoles={["doctor"]}>
+            <DoctorHome />
+          </RoleRoute>
+        ),
       },
       {
         path: "doctor/my-appointments",
-        element: <DoctorAppointments />,
+        element: (
+          <RoleRoute allowedRoles={["doctor"]}>
+            <DoctorAppointments />
+          </RoleRoute>
+        ),
       },
       {
         path: "doctor/patient-details",
-        element: <PatientDetails />,
+        element: (
+          <RoleRoute allowedRoles={["doctor"]}>
+            <PatientDetails />
+          </RoleRoute>
+        ),
       },
       {
         path: "doctor/write-prescription",
-        element: <WritePrescription />,
+        element: (
+          <RoleRoute allowedRoles={["doctor"]}>
+            <WritePrescription />
+          </RoleRoute>
+        ),
       },
 
+      // =========================
+      // Patient Routes
+      // =========================
       {
         path: "patient",
-        element: <PatientHome />,
+        element: (
+          <RoleRoute allowedRoles={["patient"]}>
+            <PatientHome />
+          </RoleRoute>
+        ),
       },
       {
         path: "patient/book-appointment",
-        element: <BookAppointment />,
+        element: (
+          <RoleRoute allowedRoles={["patient"]}>
+            <BookAppointment />
+          </RoleRoute>
+        ),
       },
       {
         path: "patient/my-appointments",
-        element: <PatientAppointments />,
+        element: (
+          <RoleRoute allowedRoles={["patient"]}>
+            <PatientAppointments />
+          </RoleRoute>
+        ),
       },
       {
         path: "patient/my-prescriptions",
-        element: <MyPrescriptions />,
+        element: (
+          <RoleRoute allowedRoles={["patient"]}>
+            <MyPrescriptions />
+          </RoleRoute>
+        ),
       },
       {
         path: "patient/payment-history",
-        element: <PaymentHistory />,
+        element: (
+          <RoleRoute allowedRoles={["patient"]}>
+            <PaymentHistory />
+          </RoleRoute>
+        ),
       },
 
+      // =========================
+      // Receptionist Routes
+      // =========================
       {
         path: "receptionist",
-        element: <ReceptionistHome />,
+        element: (
+          <RoleRoute allowedRoles={["receptionist"]}>
+            <ReceptionistHome />
+          </RoleRoute>
+        ),
       },
       {
         path: "receptionist/register-patient",
-        element: <RegisterPatient />,
+        element: (
+          <RoleRoute allowedRoles={["receptionist"]}>
+            <RegisterPatient />
+          </RoleRoute>
+        ),
       },
       {
         path: "receptionist/appointment-requests",
-        element: <AppointmentRequests />,
+        element: (
+          <RoleRoute allowedRoles={["receptionist"]}>
+            <AppointmentRequests />
+          </RoleRoute>
+        ),
       },
       {
         path: "receptionist/payment-update",
-        element: <PaymentUpdate />,
+        element: (
+          <RoleRoute allowedRoles={["receptionist"]}>
+            <PaymentUpdate />
+          </RoleRoute>
+        ),
       },
     ],
   },

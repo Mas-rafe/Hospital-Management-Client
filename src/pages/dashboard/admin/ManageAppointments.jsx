@@ -1,9 +1,11 @@
+import AppointmentManager from "../shared/AppointmentManager";
+
 const ManageAppointments = () => {
   return (
-    <section className="dashboard-page">
-      <h1>Manage Appointments</h1>
-      <p>Admin can monitor all patient appointment records here.</p>
-    </section>
+    <AppointmentManager
+      title="Manage Appointments"
+      subtitle="Admin can monitor and manage all appointment requests, confirmations, cancellations, and payment status."
+    />
   );
 };
 

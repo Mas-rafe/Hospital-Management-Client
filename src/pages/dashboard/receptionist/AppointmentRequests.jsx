@@ -1,9 +1,11 @@
+import AppointmentManager from "../shared/AppointmentManager";
+
 const AppointmentRequests = () => {
   return (
-    <section className="dashboard-page">
-      <h1>Appointment Requests</h1>
-      <p>Receptionist can confirm or reject appointment requests here.</p>
-    </section>
+    <AppointmentManager
+      title="Appointment Requests"
+      subtitle="Confirm pending patient appointment requests, reject invalid requests, and update payment status after payment collection."
+    />
   );
 };
 
