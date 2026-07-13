@@ -4,6 +4,7 @@ import {
   FaFilePrescription,
   FaHome,
   FaHospital,
+  FaListUl,
   FaMoneyBillWave,
   FaTimes,
   FaUserMd,
@@ -56,11 +57,11 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
       label: "Appointments",
       icon: <FaCalendarCheck />,
     },
-    {
-      to: "/dashboard/admin/manage-payments",
-      label: "Payments",
-      icon: <FaMoneyBillWave />,
-    },
+    // {
+    //   to: "/dashboard/admin/manage-payments",
+    //   label: "Payments",
+    //   icon: <FaMoneyBillWave />,
+    // },
   ];
 
   const doctorLinks = [
@@ -99,11 +100,11 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
       label: "My Prescriptions",
       icon: <FaFilePrescription />,
     },
-    {
-      to: "/dashboard/patient/payment-history",
-      label: "Payment History",
-      icon: <FaMoneyBillWave />,
-    },
+    // {
+    //   to: "/dashboard/patient/payment-history",
+    //   label: "Payment History",
+    //   icon: <FaMoneyBillWave />,
+    // },
   ];
 
   const receptionistLinks = [
@@ -123,10 +124,16 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
       icon: <FaCalendarCheck />,
     },
     {
-      to: "/dashboard/receptionist/payment-update",
-      label: "Payment Update",
-      icon: <FaMoneyBillWave />,
+      to: "/dashboard/receptionist/appointments",
+      label: "Appointments",
+      icon: <FaListUl />, // Remember to import FaListUl from "react-icons/fa" at the top if you haven't yet!
     },
+
+    // {
+    //   to: "/dashboard/receptionist/payment-update",
+    //   label: "Payment Update",
+    //   icon: <FaMoneyBillWave />,
+    // },
   ];
 
   let dashboardLinks = patientLinks;
@@ -136,17 +143,15 @@ const DashboardSidebar = ({ sidebarOpen, setSidebarOpen }) => {
   if (user?.role === "receptionist") dashboardLinks = receptionistLinks;
 
   const linkClass = ({ isActive }) =>
-    `flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-extrabold transition ${
-      isActive
-        ? "bg-gradient-to-r from-teal-700 to-teal-500 text-white shadow-lg shadow-teal-900/20"
-        : "text-slate-300 hover:bg-white/10 hover:text-white"
+    `flex items-center gap-3 rounded-2xl px-4 py-3 text-sm font-extrabold transition ${isActive
+      ? "bg-gradient-to-r from-teal-700 to-teal-500 text-white shadow-lg shadow-teal-900/20"
+      : "text-slate-300 hover:bg-white/10 hover:text-white"
     }`;
 
   return (
     <aside
-      className={`fixed left-0 top-0 z-50 flex h-screen w-[290px] flex-col overflow-y-auto bg-slate-950 px-4 py-5 text-white transition-transform duration-300 lg:sticky lg:z-20 lg:translate-x-0 ${
-        sidebarOpen ? "translate-x-0" : "-translate-x-full"
-      }`}
+      className={`fixed left-0 top-0 z-50 flex h-screen w-[290px] flex-col overflow-y-auto bg-slate-950 px-4 py-5 text-white transition-transform duration-300 lg:sticky lg:z-20 lg:translate-x-0 ${sidebarOpen ? "translate-x-0" : "-translate-x-full"
+        }`}
     >
       <div className="mb-6 flex items-center justify-between">
         <Link

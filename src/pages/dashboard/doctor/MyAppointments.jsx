@@ -193,13 +193,31 @@ const MyAppointments = () => {
                 </div>
               )}
 
-              <Link
-                to={`/dashboard/doctor/write-prescription?appointmentId=${appointment._id}`}
-                className="mt-5 flex w-full items-center justify-center gap-2 rounded-2xl bg-teal-700 px-5 py-3 text-sm font-black text-white transition hover:bg-teal-800"
-              >
-                <FaFilePrescription />
-                Start Consultation / Write Prescription
-              </Link>
+              <div className="mt-5 grid gap-3 sm:grid-cols-2">
+                <Link
+                  to={`/dashboard/doctor/patient-details?appointmentId=${appointment._id}`}
+                  className="flex w-full items-center justify-center gap-2 rounded-2xl bg-slate-100 px-5 py-3 text-sm font-black text-slate-700 transition hover:bg-slate-200"
+                >
+                  <FaUserInjured />
+                  View Patient Details
+                </Link>
+
+                {appointment.status === "confirmed" && (
+                  <Link
+                    to={`/dashboard/doctor/write-prescription?appointmentId=${appointment._id}`}
+                    className="flex w-full items-center justify-center gap-2 rounded-2xl bg-teal-700 px-5 py-3 text-sm font-black text-white transition hover:bg-teal-800"
+                  >
+                    <FaFilePrescription />
+                    Write Prescription
+                  </Link>
+                )}
+
+                {appointment.status === "completed" && (
+                  <div className="flex w-full items-center justify-center rounded-2xl bg-blue-50 px-5 py-3 text-sm font-black text-blue-700 sm:col-span-1">
+                    Completed
+                  </div>
+                )}
+              </div>
             </div>
           ))}
         </div>

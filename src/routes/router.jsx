@@ -37,6 +37,7 @@ import ReceptionistHome from "../pages/dashboard/receptionist/ReceptionistHome";
 import RegisterPatient from "../pages/dashboard/receptionist/RegisterPatient";
 import AppointmentRequests from "../pages/dashboard/receptionist/AppointmentRequests";
 import PaymentUpdate from "../pages/dashboard/receptionist/PaymentUpdate";
+import Appointments from "../pages/dashboard/receptionist/Appointments";
 
 const router = createBrowserRouter([
   {
@@ -242,6 +243,15 @@ const router = createBrowserRouter([
         element: (
           <RoleRoute allowedRoles={["receptionist"]}>
             <AppointmentRequests />
+          </RoleRoute>
+        ),
+
+      },
+      {
+        path: "receptionist/appointments",
+        element: (
+          <RoleRoute allowedRoles={["receptionist"]}>
+            <Appointments />
           </RoleRoute>
         ),
       },
