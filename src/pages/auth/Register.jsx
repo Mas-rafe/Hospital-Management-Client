@@ -24,7 +24,7 @@ const Register = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/register", userInfo);
+      const res = await axios.post("https://hospital-management-server-08o3.onrender.com/register", userInfo);
 
       if (res.data.success) {
         if (res.data.token && res.data.user) {
@@ -57,7 +57,7 @@ const Register = () => {
 
   const handleGoogleSuccess = async (credentialResponse) => {
     try {
-      const res = await axios.post("http://localhost:5000/google-login", {
+      const res = await axios.post("https://hospital-management-server-08o3.onrender.com/google-login", {
         credential: credentialResponse.credential,
         role: selectedRole,
       });

@@ -19,7 +19,7 @@ const Login = () => {
     };
 
     try {
-      const res = await axios.post("http://localhost:5000/login", loginInfo);
+      const res = await axios.post("https://hospital-management-server-08o3.onrender.com/login", loginInfo);
 
       if (res.data.success) {
         saveAuthData(res.data);
@@ -46,7 +46,7 @@ const Login = () => {
 
   const handleGoogleLogin = async (credentialResponse) => {
     try {
-      const res = await axios.post("http://localhost:5000/google-login", {
+      const res = await axios.post("https://hospital-management-server-08o3.onrender.com/google-login", {
         credential: credentialResponse.credential,
         mode: "login",
       });
